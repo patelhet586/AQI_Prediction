@@ -31,4 +31,3 @@ notebook/*.pkl
 .DS_Store
 Thumbs.db
 
-model/*.pkl
