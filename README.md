@@ -1,81 +1,86 @@
-#  AQI Analysis Dashboard
+# 🌍 AirSense — AQI Prediction & Analysis Dashboard
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aqianalysisproject01.streamlit.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/patelhet586/AQI_Prediction)
 
 A Machine Learning based **Air Quality Index (AQI) Prediction Dashboard** built using **Python**, **Scikit-learn**, and **Streamlit**. This application predicts the Air Quality Index based on pollutant concentrations and provides pollutant-wise analysis along with health recommendations.
 
+## 🔗 Live Demo
+
+### **👉 [https://aqianalysisproject01.streamlit.app/](https://aqianalysisproject01.streamlit.app/)**
+
 ---
 
-##  Project Overview
+## 📋 Project Overview
 
 Air pollution is one of the major environmental challenges affecting human health. This project predicts the **Air Quality Index (AQI)** using machine learning techniques and provides a user-friendly dashboard to analyze air quality.
 
 The application allows users to:
 
-- Predict AQI using pollutant values
-- View AQI category
-- Get health recommendations
-- Analyze individual pollutant status
-- Interact through a modern Streamlit dashboard
+- 🔮 Predict AQI using pollutant values
+- 📊 View AQI category and color-coded status
+- 💡 Get health recommendations based on AQI level
+- 🔬 Analyze individual pollutant status
+- 🌐 Interact through a modern Streamlit dashboard with dark theme
 
 ---
 
-##  Features
+## ✨ Features
 
- Machine Learning Based AQI Prediction
-
- Interactive Streamlit Dashboard
-
- City Selection
-
- Pollutant-wise AQI Analysis
-
- Health Recommendations
-
- Responsive Dashboard Layout
-
- Dark Theme Support
+- ✅ Machine Learning Based AQI Prediction (Random Forest Regressor)
+- ✅ Interactive Streamlit Dashboard
+- ✅ City Selection with 26 Indian Cities
+- ✅ Pollutant-wise AQI Analysis
+- ✅ Health Recommendations based on AQI Category
+- ✅ Responsive Dashboard Layout
+- ✅ Dark Theme Support
+- ✅ Live Deployment on Streamlit Community Cloud
 
 ---
 
 ## 🛠 Technologies Used
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Streamlit
-- Joblib
-- Matplotlib
-- Seaborn
+| Technology | Purpose |
+|------------|---------|
+| Python | Core programming language |
+| Pandas | Data manipulation & analysis |
+| NumPy | Numerical computations |
+| Scikit-learn | Machine learning model training |
+| Streamlit | Web dashboard framework |
+| Joblib | Model serialization |
+| Matplotlib | Data visualization |
+| Seaborn | Statistical plots |
+| Git LFS | Large file storage for model files |
 
 ---
 
-##  Dataset
-
-Dataset Used:
+## 📂 Dataset
 
 **Air Quality Data in India (2015–2020)**
 
-Dataset contains:
+Dataset contains the following features:
 
-- City
-- PM2.5
-- PM10
-- NO
-- NO₂
-- NOx
-- NH₃
-- CO
-- SO₂
-- O₃
-- Benzene
-- Toluene
-- Xylene
-- AQI
-- AQI Bucket
+| Feature | Description |
+|---------|-------------|
+| City | City name |
+| PM2.5 | Fine particulate matter |
+| PM10 | Coarse particulate matter |
+| NO | Nitric oxide |
+| NO₂ | Nitrogen dioxide |
+| NOx | Nitrogen oxides |
+| NH₃ | Ammonia |
+| CO | Carbon monoxide |
+| SO₂ | Sulphur dioxide |
+| O₃ | Ozone |
+| Benzene | Volatile organic compound |
+| Toluene | Volatile organic compound |
+| Xylene | Volatile organic compound |
+| AQI | Air Quality Index (target) |
+| AQI Bucket | AQI category label |
 
 ---
 
-##  Machine Learning Workflow
+## 🤖 Machine Learning Workflow
 
 1. Data Cleaning
 2. Handling Missing Values
@@ -85,174 +90,186 @@ Dataset contains:
 6. Model Training
 7. Model Evaluation
 8. Hyperparameter Tuning
-9. Model Saving
+9. Model Saving (`.pkl` via Joblib)
 10. Streamlit Deployment
 
 ---
 
-##  Machine Learning Models Compared
+## 📊 Machine Learning Models Compared
 
 | Model | R² Score |
 |--------|----------|
 | Linear Regression | 0.808 |
 | Decision Tree | 0.829 |
-| Random Forest | **0.911**  |
+| **Random Forest** | **0.911** ✅ |
 | Gradient Boosting | 0.898 |
 
-**Best Model:** Random Forest Regressor
+**Best Model:** Random Forest Regressor (R² = 0.911)
 
 ---
 
-##  Pollutants Used
+## 🏥 Health Advice Categories
 
-- PM2.5
-- PM10
-- NO
-- NO₂
-- NOx
-- NH₃
-- CO
-- SO₂
-- O₃
-- Benzene
-- Toluene
-- Xylene
+| AQI Range | Category | Color |
+|-----------|----------|-------|
+| 0–50 | Good 🟢 | Green |
+| 51–100 | Satisfactory 🟡 | Yellow |
+| 101–200 | Moderate 🟠 | Orange |
+| 201–300 | Poor 🔴 | Red |
+| 301–400 | Very Poor 🟣 | Purple |
+| 401–500 | Severe ⚫ | Maroon |
 
 ---
 
-##  Health Advice Categories
-
-| AQI Range | Category |
-|-----------|---------|
-| 0–50 | Good  |
-| 51–100 | Satisfactory |
-| 101–200 | Moderate |
-| 201–300 | Poor  |
-| 301–400 | Very Poor |
-| 401–500 | Severe  |
-
----
-
-##  Project Structure
+## 📁 Project Structure
 
 ```text
-AQI_Analysis/
+AQI_Prediction/
 │
-├── app.py
-│
-├── assets/
-│   └── style.css
-│
-├── data/
-│   ├── city_day.csv
-│   ├── city_hour.csv
-│   ├── station_day.csv
-│   ├── station_hour.csv
-│   └── stations.csv
+├── app.py                        # Main Streamlit application
+├── test_api.py                   # API testing script
+├── build_report.js               # Report generation script
 │
 ├── model/
-│   ├── aqi_model.pkl
-│   └── city_mapping.csv
+│   ├── aqi_model.pkl             # Trained Random Forest model (Git LFS)
+│   ├── city_encoder.pkl          # Label encoder for cities (Git LFS)
+│   └── city_mapping.csv          # City name mapping
 │
 ├── notebook/
-│   └── AQI_prediction.ipynb
+│   └── AQI_prediction.ipynb      # Jupyter notebook with EDA & training
 │
 ├── utils/
-│   ├── predictor.py
-│   ├── categories.py
-│   ├── pollutant_analysis.py
-│   └── health_advice.py
+│   ├── predictor.py              # Model loading & AQI prediction
+│   ├── categories.py             # AQI category classification
+│   ├── pollutant_analysis.py     # Individual pollutant analysis
+│   ├── health_advice.py          # Health recommendations
+│   └── air_quality_api.py        # Air quality API integration
 │
 ├── .streamlit/
-│   └── config.toml
+│   └── config.toml               # Streamlit theme & server config
 │
-├── requirements.txt
-└── README.md
+├── .gitignore                    # Git ignore rules
+├── .gitattributes                # Git LFS tracking rules
+├── requirements.txt              # Python dependencies
+├── README.md                     # Project documentation
+│
+├── AQI_Analysis_PDS_Report.docx  # Project report (DOCX)
+└── AQI_Analysis_PM_Report.pdf    # Project report (PDF)
 ```
 
 ---
 
-## ⚙ Installation
+## ⚙ Installation & Local Setup
 
-Clone the repository
-
-```bash
-git clone https://github.com/yourusername/AQI_Analysis.git
-```
-
-Move into the project folder
+### 1. Clone the repository
 
 ```bash
-cd AQI_Analysis
+git clone https://github.com/patelhet586/AQI_Prediction.git
 ```
 
-Install dependencies
+### 2. Move into the project folder
+
+```bash
+cd AQI_Prediction
+```
+
+### 3. Create a virtual environment (recommended)
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate      # Windows
+# source .venv/bin/activate  # macOS/Linux
+```
+
+### 4. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the application
+### 5. Pull Git LFS files (model)
+
+```bash
+git lfs pull
+```
+
+### 6. Run the application
 
 ```bash
 streamlit run app.py
 ```
 
----
-
-## Dashboard Features
-
--  AQI Prediction
--  Pollutant Analysis
-- ️ Health Advice
--  City Selection
--  Date Selection
-- ️ Pollutant Inputs
--  Dark Theme Support
--  Responsive Layout
+The app will open at `http://localhost:8501`
 
 ---
 
-##  Dashboard Preview
+## 🚀 Deployment
 
-> Add screenshots of your dashboard here after deployment.
+This project is deployed on **Streamlit Community Cloud**.
 
-Example:
+| Property | Value |
+|----------|-------|
+| **Live URL** | [https://aqianalysisproject01.streamlit.app/](https://aqianalysisproject01.streamlit.app/) |
+| **Platform** | Streamlit Community Cloud |
+| **Repository** | [patelhet586/AQI_Prediction](https://github.com/patelhet586/AQI_Prediction) |
+| **Branch** | `main` |
+| **Main File** | `app.py` |
+| **Model Storage** | Git LFS (Large File Storage) |
 
-```
-images/dashboard.png
-```
+### Deployment Notes
 
----
-
-## Future Improvements
-
-- AQI Trend Visualization
-- Weather API Integration
-- Live AQI Data
-- PDF Report Download
-- Historical AQI Analysis
-- AQI Forecasting
-- Interactive Charts
-- User Authentication
+- Model files (`model/aqi_model.pkl`, `model/city_encoder.pkl`) are stored via **Git LFS** to handle the ~33.5 MB model binary
+- Large dataset files (`Data sets/`) are excluded from the repository via `.gitignore` as they exceed GitHub's 100 MB push limit
+- The `.streamlit/config.toml` pre-configures the dark theme and server settings for production
 
 ---
 
-## Author
+## 🖥 Dashboard Features
+
+- 🔮 **AQI Prediction** — Predict air quality from pollutant values
+- 🔬 **Pollutant Analysis** — Individual pollutant status breakdown
+- 🏥 **Health Advice** — Category-based health recommendations
+- 🏙️ **City Selection** — Choose from 26 Indian cities
+- 📅 **Date Selection** — Pick a date for prediction context
+- 🎛️ **Pollutant Inputs** — Slider-based pollutant value entry
+- 🌙 **Dark Theme** — Built-in dark mode support
+- 📱 **Responsive Layout** — Works on desktop and mobile
+
+---
+
+## 🔮 Future Improvements
+
+- 📈 AQI Trend Visualization
+- 🌤️ Weather API Integration
+- 📡 Live AQI Data Feed
+- 📄 PDF Report Download
+- 📊 Historical AQI Analysis
+- 🔮 AQI Forecasting (Time Series)
+- 📉 Interactive Charts
+- 🔐 User Authentication
+
+---
+
+## 👤 Author
 
 **Het Patel**
 
 Computer Engineering Student
 
 Passionate about:
-
-- Data Science
-- Machine Learning
-- Data Analytics
-- Artificial Intelligence
+- 📊 Data Science
+- 🤖 Machine Learning
+- 📈 Data Analytics
+- 🧠 Artificial Intelligence
 
 ---
 
-##  If you like this project
+## ⭐ If you like this project
 
-Please consider giving it a ⭐ on GitHub.
+Please consider giving it a ⭐ on [GitHub](https://github.com/patelhet586/AQI_Prediction)!
+
+---
+
+## 📜 License
+
+This project is open source and available for educational purposes.
